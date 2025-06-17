@@ -1,16 +1,17 @@
-package com.controle.controle_de_ponto.infra.token;
+package com.controle.controle_de_ponto.infra.security;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTCreationException;
-import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.controle.controle_de_ponto.domain.models.Funcionario;
-import org.springframework.beans.factory.annotation.Value; // Importar
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant; // Importar
-import java.time.LocalDateTime; // Importar
-import java.time.ZoneOffset; // Importar
+import com.auth0.jwt.JWT; // Importar
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException; // Importar
+import com.auth0.jwt.exceptions.JWTVerificationException; // Importar
+import com.controle.controle_de_ponto.domain.models.Funcionario; // Importar
 
 @Service
 public class TokenService {

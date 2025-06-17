@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.controle.controle_de_ponto.domain.models.Funcionario;
-import com.controle.controle_de_ponto.infra.token.TokenService;
 import com.controle.controle_de_ponto.repository.FuncionarioRepository;
 
 import jakarta.servlet.FilterChain;

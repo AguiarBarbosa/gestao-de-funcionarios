@@ -1,4 +1,4 @@
-package com.controle.controle_de_ponto.controller.dto;
+package com.controle.controle_de_ponto.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.controle.controle_de_ponto.controller.dto.AuthDTO;
-import com.controle.controle_de_ponto.controller.dto.LoginResponseDTO;
 import com.controle.controle_de_ponto.domain.models.Funcionario;
-import com.controle.controle_de_ponto.infra.token.TokenService;
+import com.controle.controle_de_ponto.dto.AuthDTO;
+import com.controle.controle_de_ponto.dto.LoginResponseDTO;
+import com.controle.controle_de_ponto.infra.security.TokenService;
 import com.controle.controle_de_ponto.repository.FuncionarioRepository;
 
 import jakarta.validation.Valid;
