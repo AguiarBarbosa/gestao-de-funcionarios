@@ -1,5 +1,7 @@
 package com.controle.controle_de_ponto.domain.models;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -7,13 +9,17 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Getter; 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -33,7 +39,13 @@ public class Funcionario implements UserDetails {
     private String email;
     private String senha; 
     
+    // NOVO CAMPO: Lista para armazenar os registros de ponto
+    @ElementCollection
+    @CollectionTable(name = "funcionario_pontos", joinColumns = @JoinColumn(name = "funcionario_id"))
+    @Column(name = "horario_ponto")
+    private List<LocalDateTime> pontos = new ArrayList<>(); // Inicializa a lista
 
+    // ... (Seus outros métodos e implementações de UserDetails)
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.administrador) {
