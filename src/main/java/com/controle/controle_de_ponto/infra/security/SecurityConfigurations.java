@@ -28,12 +28,11 @@ public class SecurityConfigurations {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/ponto/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/ponto/{id}/bater").authenticated() // Já permite autenticados
-                        // ALTERAÇÃO AQUI: Permite que usuários com ROLE_USER OU ROLE_ADMIN acessem GET /ponto/{id}
+                        .requestMatchers(HttpMethod.POST, "/ponto/{id}/bater").authenticated()
                         .requestMatchers(HttpMethod.GET, "/ponto/{id}").hasAnyRole("USER", "ADMIN") 
                         .requestMatchers(HttpMethod.POST, "/ponto").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/ponto/{id}").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/ponto").hasRole("ADMIN") // Listar todos os funcionários continua só para ADMIN
+                        .requestMatchers(HttpMethod.GET, "/ponto").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/ponto/{id}").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )

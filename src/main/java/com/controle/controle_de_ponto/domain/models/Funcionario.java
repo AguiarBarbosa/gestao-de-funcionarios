@@ -39,13 +39,13 @@ public class Funcionario implements UserDetails {
     private String email;
     private String senha; 
     
-    // NOVO CAMPO: Lista para armazenar os registros de ponto
+
     @ElementCollection
     @CollectionTable(name = "funcionario_pontos", joinColumns = @JoinColumn(name = "funcionario_id"))
     @Column(name = "horario_ponto")
-    private List<LocalDateTime> pontos = new ArrayList<>(); // Inicializa a lista
+    private List<LocalDateTime> pontos = new ArrayList<>();
 
-    // ... (Seus outros métodos e implementações de UserDetails)
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.administrador) {
